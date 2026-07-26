@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Times New Roman", Times, serif;
+
+  --color-ink: #1d1d1f;
+  --color-ink-soft: #48484a;
+  --color-ink-muted: #86868b;
+  --color-paper: #ffffff;
+  --color-canvas: #f6f8f6;
+  --color-line: #e5e5e7;
+  --color-line-soft: #eef1ee;
+  --color-leaf: #2f5233;
+  --color-leaf-soft: #e9f1ea;
+  --color-leaf-dark: #1f3d24;
+  --color-leaf-bright: #4b7a4f;
+  --color-amber: #b3641f;
+  --color-amber-soft: #fbf1e6;
+  --color-rust: #a13f3f;
+  --color-rust-soft: #f8ecec;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background: var(--color-leaf-soft);
+  color: var(--color-leaf-dark);
+}
+
+.bg-hero-glow {
+  background:
+    radial-gradient(650px circle at 78% 8%, rgba(47, 82, 51, 0.10), transparent 60%),
+    radial-gradient(480px circle at 6% 70%, rgba(47, 82, 51, 0.07), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f8faf8 100%);
+}
+
+.bg-section-glow {
+  background: radial-gradient(900px circle at 50% -10%, rgba(47, 82, 51, 0.06), transparent 55%);
+}
+
+.text-gradient-leaf {
+  background: linear-gradient(100deg, var(--color-leaf) 0%, var(--color-leaf-bright) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
